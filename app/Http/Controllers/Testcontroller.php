@@ -23,7 +23,13 @@ class Testcontroller extends Controller
         }
         return view ('test.foo');
         }
+ public function foo1(){
 
+        if (!Gate::allows('access-admin')){
+            abort('403');
+        }
+        return view ('test.foo');
+        }
     public function bar(){
 
         /*if (!empty($user->email)) {
